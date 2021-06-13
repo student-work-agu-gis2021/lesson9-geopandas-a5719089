@@ -72,6 +72,13 @@ print(movements["geometry"].head())
 # - Calculate the lenghts of the lines into a new column called ``distance`` in ``movements`` GeoDataFrame.
 
 # YOUR CODE HERE 5 to calculate distance
+def calculate_distance(x):
+  if x["geometry"] is None:
+    return None
+  else:
+    return x["geometry"].length
+
+movements["distance"]=movements.apply(calculate_distance,axis=1)
 
 # CODE FOR TESTING YOUR SOLUTION
 
